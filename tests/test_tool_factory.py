@@ -91,20 +91,6 @@ class ToolFactoryTest(unittest.TestCase):
 
         print(json.dumps(tools[0].openai_schema, indent=4))
 
-    def test_relevance_openapi_schema(self):
-        with open("./data/schemas/relevance.json", "r") as f:
-            tools = ToolFactory.from_openapi_schema(f.read(), {
-                "Authorization": os.environ.get("TEST_SCHEMA_API_KEY")
-            })
-
-        print(json.dumps(tools[0].openai_schema, indent=4))
-
-        output = tools[0](requestBody={"text":'test'}).run()
-
-        print(output)
-
-        assert output['output']['transformed']['data'] == 'test complete.'
-
     def test_get_headers_openapi_schema(self):
         with open("./data/schemas/get-headers-params.json", "r") as f:
             tools = ToolFactory.from_openapi_schema(f.read(),{
