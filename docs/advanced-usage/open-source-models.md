@@ -22,7 +22,7 @@ Next, switch out the OpenAI client:
 
 ```python
 import openai
-from agency_swarm import set_openai_client
+from easy_agent import set_openai_client
 
 client = openai.OpenAI(api_key="whatever", base_url="http://127.0.0.1:8000/")
 
@@ -32,7 +32,7 @@ set_openai_client(client)
 and the model parameter:
 
 ```python
-from agency_swarm import Agent
+from easy_agent import Agent
 
 ceo = Agent(name="ceo", description="I am the CEO", model='ollama/llama3')
 ```
@@ -40,7 +40,7 @@ ceo = Agent(name="ceo", description="I am the CEO", model='ollama/llama3')
 To utilize your agency in gradio, apply a specific non-streaming `demo_gradio` method from the [agency-swarm-lab](https://github.com/VRSEN/agency-swarm-lab/blob/main/OpenSourceSwarm/demo_gradio.py) repository:
 
 ```python
-from agency_swarm import Agency
+from easy_agent import Agency
 from .demo_gradio import demo_gradio
 
 agency = Agency([ceo])

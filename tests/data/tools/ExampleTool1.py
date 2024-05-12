@@ -1,4 +1,4 @@
-from agency_swarm.tools import BaseTool
+from easy_agent.tools import BaseTool
 from pydantic import Field
 
 

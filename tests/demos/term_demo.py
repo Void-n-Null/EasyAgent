@@ -1,9 +1,9 @@
 import sys
 import unittest
 
-from agency_swarm import set_openai_key
-from agency_swarm.agency.agency import Agency
-from agency_swarm.threads import Thread
+from easy_agent import set_openai_key
+from easy_agent.agency.agency import Agency
+from easy_agent.threads import Thread
 from tests.ceo.ceo import Ceo
 from .test_agent.test_agent import TestAgent
 from .test_agent2.test_agent2 import TestAgent2

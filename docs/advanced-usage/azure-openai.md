@@ -17,7 +17,7 @@ To use Azure OpenAI, you need to change OpenAI client with AzureOpenAI client. H
 
 ```python
 from openai import AzureOpenAI
-from agency_swarm import set_openai_client
+from easy_agent import set_openai_client
 
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),

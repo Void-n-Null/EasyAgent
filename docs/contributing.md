@@ -48,9 +48,11 @@ agency_swarm/agents/your-agent-category/AgentName/
 
 Follow the structure below in your AgentName.py as a guideline.
 All tools (except schemas) should be imported in AgentName.py from the agency_swarm/tools/... folder.
+
 ```python
-from agency_swarm import Agent
-from agency_swarm.tools.example import ExampleTool
+from easy_agent import Agent
+from easy_agent.tools.example import ExampleTool
+
 
 class AgentName(Agent):
     def __init__(self, **kwargs):
@@ -62,7 +64,7 @@ class AgentName(Agent):
 
         # Set instructions
         kwargs['instructions'] = "./instructions.md"
-        
+
         # Add more kwargs as needed
 
         # Initialize the parent class

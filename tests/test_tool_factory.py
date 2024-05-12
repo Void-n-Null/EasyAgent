@@ -8,11 +8,11 @@ from instructor import OpenAISchema
 from pydantic import Field
 
 sys.path.insert(0, '../agency-swarm')
-from agency_swarm.tools import ToolFactory
-from agency_swarm.util.schema import dereference_schema, reference_schema
+from easy_agent.tools import ToolFactory
+from easy_agent.util.schema import dereference_schema, reference_schema
 from langchain.tools import MoveFileTool, YouTubeSearchTool
 
-from agency_swarm.util import get_openai_client
+from easy_agent.util import get_openai_client
 
 
 class ToolFactoryTest(unittest.TestCase):

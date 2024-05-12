@@ -10,7 +10,7 @@ setup(
     author='VRSEN',
     author_email='arseny9795@gmail.com',
     description='An opensource agent orchestration framework built on top of the latest OpenAI Assistants API.',
-    long_description=open('README.md', encoding='utf-8').read(),
+    long_description=open('OLD_README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/VRSEN/agency-swarm',
     packages=find_packages(exclude=['tests', 'tests.*']),
@@ -21,7 +21,7 @@ setup(
         'License :: OSI Approved :: MIT License',
     ],
     entry_points = {
-        'console_scripts': ['agency-swarm=agency_swarm.cli:main'],
+        'console_scripts': ['agency-swarm=easy_agent.cli:main'],
     },
     python_requires='>=3.7',
 )

@@ -15,10 +15,10 @@ When it comes to creating your agent, you have 3 options:
 
 ### Defining the agent directly in the code
 
-To define your agent in the code, you can simply instantiate the `Agent` class and pass the required parameters. 
+To define your agent in the code, you can simply instantiate the `Agent` class and pass the required parameters.
 
 ```python
-from agency_swarm import Agent
+from easy_agent import Agent
 
 agent = Agent(name="My Agent",
               description="This is a description of my agent.",
@@ -26,7 +26,7 @@ agent = Agent(name="My Agent",
               tools=[ToolClass1, ToolClass2],
               temperature=0.3,
               max_prompt_tokens=25000
-            )
+              )
 ```
 
 ### Create agent template locally using CLI
@@ -66,7 +66,8 @@ When you run the `create-agent-template` command, it creates the following folde
 The `AgentName.py` file will contain the following code:
 
 ```python
-from agency_swarm.agents import Agent
+from easy_agent.agents import Agent
+
 
 class AgentName(Agent):
     def __init__(self):
@@ -86,7 +87,7 @@ class AgentName(Agent):
         """This function is used to validate the response before sending it to the user or another agent."""
         if "bad word" in message:
             raise ValueError("Please don't use bad words.")
-        
+
         return message
 ```
 

@@ -9,14 +9,14 @@ import unittest
 from openai.types.beta.threads import Text
 from openai.types.beta.threads.runs import ToolCall
 
-from agency_swarm.tools import CodeInterpreter, FileSearch
+from easy_agent.tools import CodeInterpreter, FileSearch
 
 sys.path.insert(0, '../agency-swarm')
-from agency_swarm.util import create_agent_template
+from easy_agent.util import create_agent_template
 
-from agency_swarm import set_openai_key, Agent, Agency, AgencyEventHandler, get_openai_client
+from easy_agent import set_openai_key, Agent, Agency, AgencyEventHandler, get_openai_client
 from typing_extensions import override
-from agency_swarm.tools import BaseTool
+from easy_agent.tools import BaseTool
 
 os.environ["DEBUG_MODE"] = "True"
 

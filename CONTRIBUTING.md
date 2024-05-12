@@ -27,7 +27,8 @@ agency_swarm/agents/AgentName/
 2. All tools (except schemas) should be imported in `AgentName.py` from the `agency_swarm/tools/...` folder.
 
 ```python
-from agency_swarm import Agent
+from easy_agent import Agent
+
 
 class AgentName(Agent):
     def __init__(self):

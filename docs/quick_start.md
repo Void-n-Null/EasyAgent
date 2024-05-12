@@ -17,14 +17,14 @@ pip install agency-swarm
 1. **Set Your OpenAI Key**:
 
     ```python
-    from agency_swarm import set_openai_key
+    from easy_agent import set_openai_key
     set_openai_key("YOUR_API_KEY")
     ```
    
 2. **Create Tools**: Define your custom tools with [Instructor](https://github.com/jxnl/instructor).  
-All tools must extend the `BaseTool` class and implement the `run` method. 
+All tools must extend the `BaseTool` class and implement the `run` method.
     ```python
-    from agency_swarm.tools import BaseTool
+    from easy_agent.tools import BaseTool
     from pydantic import Field
     
     class MyCustomTool(BaseTool):
@@ -60,7 +60,7 @@ All tools must extend the `BaseTool` class and implement the `run` method.
 3. **Define Agent Roles**: Define your agent roles. For example, a CEO agent for managing tasks and a developer agent for executing tasks.
 
     ```python
-    from agency_swarm import Agent
+    from easy_agent import Agent
     
     ceo = Agent(name="CEO",
                 description="Responsible for client communication, task planning and management.",
@@ -78,7 +78,7 @@ All tools must extend the `BaseTool` class and implement the `run` method.
     Any agents that are listed in the same list (eg. `[[ceo, dev]]`) can communicate with each other. The top-level list (`[ceo]`) defines agents that can communicate with the user.
 
     ```python
-    from agency_swarm import Agency
+    from easy_agent import Agency
     
     agency = Agency([
         ceo,  # CEO will be the entry point for communication with the user
@@ -91,8 +91,8 @@ All tools must extend the `BaseTool` class and implement the `run` method.
 
    5. **Run Demo**: 
    Run the demo to see your agents in action!
-    
-    Web interface:
+
+   Web interface:
 
     ```python
     agency.demo_gradio(height=900)

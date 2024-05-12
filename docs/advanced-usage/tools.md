@@ -13,22 +13,22 @@ This is an example of how to convert an extremely useful tool for RAG applicatio
 
 ### Original Instructor library implementation
 
-
 ```python
-from agency_swarm.tools import BaseTool, BaseModel
+from easy_agent.tools import BaseTool, BaseModel
 from pydantic import Field, model_validator, FieldValidationInfo
 from typing import List
 import re
 
+
 class Fact(BaseModel):
     fact: str = Field(...)
     substring_quote: List[str] = Field(...)
-    
+
     @model_validator(mode="after")
     def validate_sources(self, info: FieldValidationInfo) -> "Fact":
         text_chunks = info.context.get("text_chunk", None)
         spans = list(self.get_spans(text_chunks))
-        self.substring_quote = [text_chunks[span[0] : span[1]] for span in spans]
+        self.substring_quote = [text_chunks[span[0]: span[1]] for span in spans]
         return self
 
     def get_spans(self, context):
@@ -38,6 +38,7 @@ class Fact(BaseModel):
     def _get_span(self, quote, context):
         for match in re.finditer(re.escape(quote), context):
             yield match.span()
+
 
 class QuestionAnswer(BaseModel):
     question: str = Field(...)

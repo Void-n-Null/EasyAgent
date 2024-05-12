@@ -2,8 +2,8 @@ import sys
 import time
 import unittest
 
-from agency_swarm import Agent, BaseTool
-from agency_swarm.agency.agency import Agency
+from easy_agent import Agent, BaseTool
+from easy_agent.agency.agency import Agency
 
 sys.path.insert(0, '../agency-swarm')
 

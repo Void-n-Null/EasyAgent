@@ -18,13 +18,13 @@ Here are the primary benefits of using an Agency, instead of an individual agent
 Unlike all other frameworks, communication flows in Agency Swarm are **not hierarchical** or **sequential**. Instead, they are **uniform**. You can define them however you want. But keep in mind that they are established from left to right inside the `agency_chart`. So, in the example below, the CEO can initiate communication and send tasks to the Developer and the Virtual Assistant, and they can respond in to him in the same thread, but the Developer or the VA cannot initiate a conversation and assign tasks to the CEO. You can add as many levels of communication as you want.
 
 ```python
-from agency_swarm import Agency
+from easy_agent import Agency
 
 agency = Agency([
     ceo, dev  # CEO and Developer will be the entry point for communication with the user
     [ceo, dev],  # CEO can initiate communication with Developer
-    [ceo, va],   # CEO can initiate communication with Virtual Assistant
-    [dev, va]    # Developer can initiate communication with Virtual Assistant
+    [ceo, va],  # CEO can initiate communication with Virtual Assistant
+    [dev, va]  # Developer can initiate communication with Virtual Assistant
 ])
 ```
 
@@ -36,10 +36,10 @@ To stream the conversation between agents, you can use the `get_completion_strea
 
 The only difference is that you must extend the `AgencyEventHandler` class, which has 2 additional properties: `agent_name` and `recipient_agent_name`, to get the names of the agents communicating with each other. (See the `on_text_created` below.)
 
-
 ```python
 from typing_extensions import override
-from agency_swarm import AgencyEventHandler
+from easy_agent import AgencyEventHandler
+
 
 class EventHandler(AgencyEventHandler):
     @override
@@ -66,7 +66,8 @@ class EventHandler(AgencyEventHandler):
 
     @classmethod
     def on_all_streams_end(cls):
-        print("\n\nAll streams have ended.") # Conversation is over and message is returned to the user.
+        print("\n\nAll streams have ended.")  # Conversation is over and message is returned to the user.
+
 
 response = agency.get_completion_stream("I want you to build me a website", event_handler=EventHandler)
 ```
